@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
+@charset "utf-8";
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: inherit;}
+ol,ul{list-style: none;}
+/*app*/
+#app{
+    /* width: 390px;               */
+    min-height: 100vh;         
+    margin: 0 auto;           
+    padding: 20px 0;
+    color: #E7DFD2;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #0C1624, #142235) ;
+    h1{
+        color: #E7DFD2;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+}
+.logo-mark.small {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 버튼 공통 */
+.primary-btn,
+.secondary-btn {
+    min-width: 120px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1.5px solid #e7dfd2;
+    background: transparent;
+    color: #e7dfd2;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.primary-btn {
+    background: #e7dfd2;
+    color: #0c1624;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 1. 시작 화면 */
+#start-screen {
+    text-align: center;
+    margin-top: 80px;
 }
 
-.App-link {
-  color: #61dafb;
+.start-subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#categories{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px;
+    text-align: center;
+    ul{
+        padding: 0 16px;
+        /* margin: 0; */
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 20px;
+        li{
+            width: 140px;
+            height: 110px;
+            cursor: pointer;
+            color: #E7DFD2;
+            text-align: center;
+            border-radius: 18px;
+            border: 1.5px solid #E7DFD2 ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    }
+}
+#quiz-page {
+    max-width: 350px;          /* 가운데 적당한 폭 */
+    margin: 0 auto ;    /* 위/아래 여백 + 가운데 정렬 */
+    padding: 18px 20px;
+    background: #1A2938;       /* 앱 배경보다 조금 밝거나 어두운 색 */
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+/* 퀴즈 질문 */
+.quiz-question {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #E7DFD2;
+}
+
+/* 보기 리스트 */
+.choices {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #F4F6F3;
+}
+
+/* 보기 하나 카드 */
+.choice-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1.5px solid #E7DFD2; 
+    cursor: pointer;
+}
+
+/* 동그란 A/B/C/D 라벨 */
+.choice-label {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid #667482;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #E7DFD2;
+    background-color: #192630;
+}
+
+/* 보기 긴 문장 */
+.choice-text {
+    flex: 1;
+    text-align: left;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+@media all and (max-width:360px) {
+    #app{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+}
+/* 4. 결과 화면 */
+#results-page {
+    width: 350px;
+    margin: 60px auto 0;
+    padding: 32px 20px 28px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+}
+
+#results-page h2 {
+    margin-bottom: 8px;
+}
+
+.result-score {
+    font-size: 56px;
+    font-weight: 700;
+    margin: 8px 0 32px;
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
 }

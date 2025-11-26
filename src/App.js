@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Categories from './components/Categories';
+import quizData from './data/quizData.json';
+import QuizPage from "./components/QuizPage";
+import Results from "./components/Results";
+import StartScreen from "./components/StartScreen";
+const App = () => {
+  const [started, setStarted] = useState(false);
+  const [category,setCategory]=useState('');
+  const [filterQuiz,setFilterQuiz]=useState([]);
+  const [finish,setFinish]=useState(false);
+  const [score, setScore] = useState(0);
+  const onSelectCategory = (select)=>{
+    setCategory(select);
+    //quizData 에서 선택한 카테고리의 문제만 새로 만듦.
+    const quizes = quizData.quizzes.filter((data)=>{
+      return data.category === select;
+    });
+    setFilterQuiz(quizes);
+    setCategory(select);
+    setFinish(false);
+    setScore(0);
+  }
+  const handleReStart=()=>{
+    setCategory('');
+    setFinish(false);
+    setScore(0);
+  }
+  const handleScore = ()=>{
+    //이전에 가진 값에 +20
+    setScore((prev)=>{return prev+20});
+  }
+    return (
+    <div id="app">
+      <h1>한국사 한눈에</h1>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* 1) 첫 화면 */}
+      {!started && (
+        <StartScreen onStart={() => setStarted(true)} />
+      )}
+
+      {/* 2) 카테고리 화면 */}
+      {started && !category && !finish && (
+        <Categories
+          categories={quizData.categories}
+          onSelect={onSelectCategory}
+        />
+      )}
+
+      {/* 3) 퀴즈 화면 */}
+      {started && category && !finish && (
+        <QuizPage
+          quizes={filterQuiz}
+          onFinish={setFinish}
+          onScore={handleScore}
+          score={score}
+        />
+      )}
+
+      {/* 4) 결과 화면 */}
+      {started && finish && (
+        <Results score={score} onReStart={handleReStart} />
+      )}
     </div>
   );
 }
 
-export default App;
+export default App
