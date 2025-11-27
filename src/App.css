@@ -37,21 +37,47 @@ ol,ul{list-style: none;}
 }
 
 .primary-btn {
-    background: #e7dfd2;
-    color: #0c1624;
+    .primary-btn {
+    width: 160px;
+    height: 44px;
+    border-radius: 22px;
+    border: 1.5px solid #E7DFD2;
+    background: transparent;   /* 배경 투명 */
+    color: #E7DFD2;
+    font-size: 14px;
+    cursor: pointer;
+}
 }
 
 /* 1. 시작 화면 */
 #start-screen {
+    width: 100%;
+    height: calc(100vh - 60px); /* 위 여백 약간 남기고 전체 채우기 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* 위 덩어리, 아래 버튼 */
+    padding: 60px 24px 40px;
     text-align: center;
-    margin-top: 80px;
+    /* margin-top: 80px; */
 }
 
+.logo-mark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+}
 .start-subtitle {
-    font-size: 14px;
-    margin-bottom: 24px;
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
 }
-
 #categories{
     display: flex;
     flex-direction: column;
