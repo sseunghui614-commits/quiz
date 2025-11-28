@@ -1,7 +1,9 @@
 const Results = ({ score, onReStart }) => {
     return (
         <div id="results-page">
-        <div className="logo-mark small">📚</div>
+        <div className="logo-mark small">
+            <img src="/images/quizfinish.png" alt="quiz logo" />
+        </div>
         <h2>퀴즈 완료</h2>
         <p className="result-score">{score}</p>
 
