@@ -1,12 +1,13 @@
 const Results = ({ score, onReStart }) => {
     return (
         <div id="results-page">
-        <div className="logo-mark small">
-            <img src="/images/quizfinish.png" alt="quiz logo" />
-        </div>
-        <h2>퀴즈 완료</h2>
-        <p className="result-score">{score}</p>
-
+            <div className="result-header">
+            <div className="logo-mark small">
+                <img src="/images/quizfinish.png" alt="quiz logo" />
+            </div>
+            <h2 className="results-title">퀴즈 완료</h2>
+            <p className="result-score">{score}</p>
+            </div>
         <div className="result-buttons">
             <button className="primary-btn" onClick={onReStart}>
             다시 풀기

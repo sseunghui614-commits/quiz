@@ -6,7 +6,7 @@ const QuizPage = ({ quizes, onFinish, onScore, score }) => {
     const handleClick = (idx) => {
     // 정답 체크 (correct는 0,1,2,3 인덱스 기준)
     if (idx === quizes[current].correct) {
-      // 점수 += 20
+      // 점수 += 20 
     onScore(20);
     }
 
@@ -21,15 +21,22 @@ const QuizPage = ({ quizes, onFinish, onScore, score }) => {
     const currentQuiz = quizes[current];
 
     return (
+        <div id="quiz-screen">
+            <div className="quiz-header">
+            <img
+            className="quiz-logo"
+            src="/images/quizfinish.png"
+            alt="quiz logo"
+            />
+            <p className="quiz-title">한국사 한눈에</p>
+            </div>
         <div id="quiz-page">
         <h3>퀴즈 ({current + 1}/{quizes.length})</h3>
         <p className="quiz-question">{currentQuiz.question}</p>
-
         <ul className="choices">
             {currentQuiz.choices.map((item, idx) => {
             // 0→A, 1→B, 2→C, 3→D
             const label = String.fromCharCode(65 + idx);
-
             return (
                 <li
                 key={idx}
@@ -42,8 +49,7 @@ const QuizPage = ({ quizes, onFinish, onScore, score }) => {
             );
             })}
         </ul>
-
-        <p>Child Score : {score}</p>
+        </div>
         </div>
     );
 };

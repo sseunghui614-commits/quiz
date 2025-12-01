@@ -1,9 +1,13 @@
 const Categories = ({categories,onSelect}) => {
-    console.log(categories);
     return (
         <div id="categories">
-        <img src="/images/quizfinish.png" alt="quiz logo" />
-        <h3>카테고리를 선택하세요</h3>
+            <div className="category-header">
+                <img 
+                className="category-logo"
+                src="/images/quizfinish.png"
+                alt="quiz logo" />
+                <h3>카테고리를 선택하세요</h3>
+            </div>
         <ul>
             {
                 categories.map((item,idx)=>{
