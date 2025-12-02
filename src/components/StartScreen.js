@@ -3,9 +3,9 @@ const StartScreen = ({ onStart }) => {
         <div id="start-screen">
         <div className="start-top">
             <div className="logo-mark">
-                <img src="/images/quizfinish.png" alt="quiz logo" />
+                <img src="/images/quizfinished.png" alt="quiz logo" />
+                <p className="start-subtitle">한국사를 한눈에</p>
             </div>
-            <p className="start-subtitle">한국사를 한눈에</p>
         </div>
         <button className="primary-btn" onClick={onStart}>
             시작
