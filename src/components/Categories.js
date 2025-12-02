@@ -4,7 +4,7 @@ const Categories = ({categories,onSelect}) => {
             <div className="category-header">
                 <img 
                 className="category-logo"
-                src="/images/quizfinished.png"
+                src={`${process.env.PUBLIC_URL}/images/quizfinished.png`}
                 alt="quiz logo" />
                 <h3>카테고리를 선택하세요</h3>
             </div>

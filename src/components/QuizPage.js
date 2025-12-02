@@ -25,7 +25,7 @@ const QuizPage = ({ quizes, onFinish, onScore, score }) => {
             <div className="quiz-header">
             <img
             className="quiz-logo"
-            src="/images/quizfinished.png"
+            src={`${process.env.PUBLIC_URL}/images/quizfinished.png`}
             alt="quiz logo"
             />
             <p className="quiz-title">한국사 한눈에</p>

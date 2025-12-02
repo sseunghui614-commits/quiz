@@ -4,7 +4,7 @@ const Results = ({ score, onReStart }) => {
             <div className="result-header">
                 <img
                     className="result-logo" 
-                    src="/images/quizfinished.png" 
+                    src={`${process.env.PUBLIC_URL}/images/quizfinished.png`}
                     alt="quiz logo" />
                 <h2 className="results-title">퀴즈 완료</h2>
                 <p className="result-score">{score}</p>
