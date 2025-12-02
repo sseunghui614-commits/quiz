@@ -1,4 +1,4 @@
-const Results = ({ score, onReStart }) => {
+const Results = ({ score, onReStart,onGoStart }) => {
     return (
         <div id="results-page">
             <div className="result-header">
@@ -13,7 +13,7 @@ const Results = ({ score, onReStart }) => {
             <button className="primary-btn" onClick={onReStart}>
             다시 풀기
             </button>
-            <button className="secondary-btn">완료</button>
+            <button className="secondary-btn" onClick={onGoStart}>완료</button>
         </div>
         </div>
     );

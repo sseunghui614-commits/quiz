@@ -31,6 +31,14 @@ const App = () => {
     //이전에 가진 값에 +20
     setScore((prev)=>{return prev+20});
   }
+  const handleGoStart = () => {
+    setScore(0);
+    setCategory('');    // 카테고리 초기화 → 시작 화면으로 돌아감
+    setFinish(false);   // 결과 화면 종료
+    setStarted(false);  // 완전 처음 화면으로 되돌림
+  };
+
+
     return (
     <div id="app">
       {/* <h1>한국사 한눈에</h1> */}
@@ -60,7 +68,11 @@ const App = () => {
 
       {/* 4) 결과 화면 */}
       {started && finish && (
-        <Results score={score} onReStart={handleReStart} />
+        <Results 
+        score={score} 
+        onReStart={handleReStart} 
+        onGoStart={handleGoStart}
+        />
       )}
     </div>
   );
